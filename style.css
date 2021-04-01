@@ -1,0 +1,40 @@
+.sun{
+    position:absolute;
+    z-index: -1;
+    width:80%;
+    padding-top:80%;
+    border-radius: 50%;
+    height:auto;
+    top:10%;
+    left:10%;
+}
+
+.sun0{
+    height:800px;
+    width:800px;
+    padding-top:0%;
+}
+
+.ground{
+    height:30%;
+    width:100%;
+    position:absolute;
+    top:70%;
+    background-color:rgb(51, 9, 9);
+}
+
+.sky{
+    background-color:rgba(74, 74, 139, 0.788);
+    height:70%;
+    width:100%;
+    position:relative;
+    z-index:-2;
+}
+
+.groundStripe{
+    width:100%;
+    height:5%;
+
+}
+
+
