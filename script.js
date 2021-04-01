@@ -58,11 +58,21 @@ function lightUpGroundNegative1(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
+        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(5*(i+1))+'%,.5)')
+        $('.ground').prepend(stripe)
+
+    }
+}
+function lightUpGroundNegative2(){
+    for(let i=0;i<20;i++){
+        var stripe=$('<div>');
+        stripe.addClass('groundStripe');
         stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(i+1)+'%,.5)')
         $('.ground').prepend(stripe)
 
     }
 }
+
 
 
 
@@ -101,6 +111,7 @@ $('body').mousemove(e=>{
     }
     if(e.pageY>$('.ground')[0].offsetTop+200){
         $('.groundStripe').remove()
+        lightUpGroundNegative2()
         
 
     }
