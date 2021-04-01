@@ -58,7 +58,7 @@ function lightUpGroundNegative1(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(5*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(2*(i+1))+'%,.5)')
         $('.ground').prepend(stripe)
 
     }
@@ -71,6 +71,13 @@ function lightUpGroundNegative2(){
         $('.ground').prepend(stripe)
 
     }
+}
+
+function generateTrees(){
+    for(let i=0;i<100;i++){
+        var tree=
+    }
+
 }
 
 
