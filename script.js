@@ -17,12 +17,16 @@ function generateSun(){
 
 generateSun();
 generateTrees()
+lightUpGroundNegative2()
+generateCloud()
+
+
 
 function lightUpGround(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(5*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(5*(i+1))+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -32,7 +36,7 @@ function lightUpGround2(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(8*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(8*(i+1))+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -42,7 +46,7 @@ function lightUpGround3(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(10*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(10*(i+1))+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -51,7 +55,7 @@ function lightUpGround4(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(20*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(20*(i+1))+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -60,7 +64,7 @@ function lightUpGroundNegative1(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(2*(i+1))+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(2*(i+1))+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -69,7 +73,7 @@ function lightUpGroundNegative2(){
     for(let i=0;i<20;i++){
         var stripe=$('<div>');
         stripe.addClass('groundStripe');
-        stripe.css('background-color','hsla('+currentDegree+','+currentSaturation+'%,'+(i+1)+'%,.5)')
+        stripe.css('background-color','hsla('+currentDegree+','+(currentSaturation+i)+'%,'+(i+1)+'%,'+(i+1)*.5+')')
         $('.ground').prepend(stripe)
 
     }
@@ -134,8 +138,6 @@ function generateTrees(){
 
 }
 
-console.log('bodywidth')
-console.log($('.sky').width())
 
 
 
@@ -155,10 +157,7 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(1)skew('+((halfpage-Xposition)/10)+'deg')
         // }
-        
-
         lightUpGround()
-        // generateTrees() 
 
     }
     if(e.pageY<$('.ground')[0].offsetTop-100){
@@ -169,9 +168,6 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(.7)skew('+((halfpage-Xposition)/10)+'deg')
         // }
-
-
-
     }
     if(e.pageY<$('.ground')[0].offsetTop-200){
         $('.groundStripe').remove()
@@ -182,10 +178,6 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(.5)skew('+((halfpage-Xposition)/10)+'deg')
         // }
-
-
-
-
     }
     if(e.pageY<$('.ground')[0].offsetTop-300){
         $('.groundStripe').remove()
@@ -196,10 +188,6 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(.2)skew('+((halfpage-Xposition)/10)+'deg')
         // }
-
-
-
-
     }
     if(e.pageY>$('.ground')[0].offsetTop+100){
         $('.groundStripe').remove()
@@ -209,8 +197,6 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(2)skew('+((halfpage-Xposition)/10)+'deg')
         // }
-
-
     }
     if(e.pageY>$('.ground')[0].offsetTop+200){
         $('.groundStripe').remove()
@@ -220,14 +206,41 @@ $('body').mousemove(e=>{
         // if(Xposition>halfpage){
             $('.treeCastShadow').css("transform",'scaleY(4)skew('+((halfpage-Xposition)/10)+'deg')
         // }
+}
+    // else($('.groundStripe').remove())
+})
 
+
+
+function generateCloud(){
+    for(let i=0;i<20;i++){
+        var angle1 = Math.random()*800+200;
+        var angle2 = Math.random()*800+200;
+        var angle3 = Math.random()*40+40;
+        var angle4 = Math.random()*40+40;
+        var height = Math.random()*30+2;
+        var width = Math.random()*50+10;
+        var top = Math.random()*140-20;
+        var left = Math.random()*140-20;
+        var transp = Math.random()*.8+0.2
+        var cloud=$('<div>')
+        var randAnimation = Math.random()*40+10
+        
+        $(cloud).addClass('cloud)')
+        $(cloud).css('animation','float '+randAnimation+'s linear infinite')
+        $(cloud).css('position','absolute');
 
         
 
+        $(cloud).css('border-radius',angle1+"px "+ angle2+"px "+ angle3+"px "+angle4+"px");
+        $(cloud).css('background-color','rgba(176,178,182,'+transp+')')
+        $(cloud).css('height', height+"%");
+        $(cloud).css('width', width+"%");
+        $(cloud).css('top', top+'%');
+        $(cloud).css('left', left+'%');
+        $('.clouds').append(cloud);
+
+
+
     }
-    // else($('.groundStripe').remove())
-
-    
-
-
-})
+}

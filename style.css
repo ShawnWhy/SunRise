@@ -41,6 +41,14 @@ body{
     width:100%;
     position:relative;
     z-index:-2;
+    overflow: hidden;
+}
+.clouds{
+    height:70%;
+    width:100%;
+    position:absolute;
+    z-index:2;
+    overflow: hidden;
 }
 
 .groundStripe{
@@ -76,6 +84,16 @@ body{
     z-index:2;
 
       
+}
+
+.cloud{
+    position: absolute;
+}
+
+@keyframes float {
+    0%{right:200%}
+    100%{left:-50%}
+    
 }
 
 
