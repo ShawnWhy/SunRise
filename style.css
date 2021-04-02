@@ -36,7 +36,7 @@ body{
 }
 
 .sky{
-    background-color:rgba(74, 74, 139, 0.788);
+    background-color:rgb(0, 174, 255);
     height:70%;
     width:100%;
     position:relative;
@@ -91,7 +91,8 @@ body{
 }
 
 @keyframes float {
-    0%{right:200%}
+    0%{right:200%; opacity:0;}
+    10%{opacity: 100%;}
     100%{left:-50%}
     
 }
