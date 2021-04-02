@@ -78,22 +78,25 @@ function lightUpGroundNegative2(){
 function generateTrees(){
 
     $('.tree').remove();
-    for(let i=0;i<50;i++){
+    for(let i=0;i<30;i++){
         var letters = '0123456789ABCDEF';
         var color = '#';
         for (var j = 0; j < 6; j++) {
         color += letters[Math.floor(Math.random() * 16)];}
         
         // var size = Math.random()*20+10;
-        var width=Math.random()*20+10 
+        var width=Math.random()*40+10 
         var top=Math.random()*100;
         var left=Math.random()*100;
+        var height=Math.random()*4+1;
         var tree=$('<div>');
         
         tree.addClass('tree');
         tree.css('top',top+'%')
         tree.css('left',left+'%')
+        tree.css('z-index',Math.floor(top))
         tree.css('width',width)
+        tree.css('transform','scaleY('+height+')')
         var treebody=$('<div>') 
         treebody.addClass('treeBody');
         
@@ -131,6 +134,8 @@ function generateTrees(){
 
 }
 
+console.log('bodywidth')
+console.log($('.sky').width())
 
 
 
@@ -138,12 +143,20 @@ function generateTrees(){
 $('body').mousemove(e=>{
     $('.sun0').css('top',e.pageY-400)
     $('.sun0').css('left',e.pageX-400)
+    var Xposition=e.pageX;
+    var halfpage = $('.sky').width()/2
     // console.log(e.pageY)
     // console.log($('.ground'))
 
     console.log($('.ground')[0].offsetTop)
     if(e.pageY<$('.ground')[0].offsetTop){
         $('.groundStripe').remove()
+        $('.treeCastShadow').css("transform",'scaleY(1)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(1)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
+        
+
         lightUpGround()
         // generateTrees() 
 
@@ -151,8 +164,11 @@ $('body').mousemove(e=>{
     if(e.pageY<$('.ground')[0].offsetTop-100){
         $('.groundStripe').remove()
         lightUpGround2()
-        $('.treeCastShadow').css("transform",'scaleY(1)')
+        $('.treeCastShadow').css("transform",'scaleY(.7)')
         $('.treeShadow').css("transform",'scaleY(.7)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(.7)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
 
 
 
@@ -163,6 +179,9 @@ $('body').mousemove(e=>{
         $('.treeCastShadow').css("height",'20%')
         $('.treeCastShadow').css("transform",'scaleY(.5)')
         $('.treeShadow').css("transform",'scaleY(.5)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(.5)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
 
 
 
@@ -174,6 +193,9 @@ $('body').mousemove(e=>{
         $('.treeCastShadow').css("height",'10%')
         $('.treeCastShadow').css("transform",'scaleY(.2)')
         $('.treeShadow').css("transform",'scaleY(.2)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(.2)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
 
 
 
@@ -184,6 +206,9 @@ $('body').mousemove(e=>{
         lightUpGroundNegative1()
         $('.treeCastShadow').css("transform",'scaleY(2)')
         $('.treeShadow').css("transform",'scaleY(.9)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(2)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
 
 
     }
@@ -192,6 +217,9 @@ $('body').mousemove(e=>{
         lightUpGroundNegative2()
         $('.treeCastShadow').css("transform",'scaleY(4)')
         $('.treeShadow').css("transform",'scaleY(1)')
+        // if(Xposition>halfpage){
+            $('.treeCastShadow').css("transform",'scaleY(4)skew('+((halfpage-Xposition)/10)+'deg')
+        // }
 
 
         

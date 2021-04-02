@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .sun{
     position:absolute;
     z-index: -1;
@@ -13,6 +17,7 @@
     height:800px;
     width:800px;
     padding-top:0%;
+    top:30%;
 }
 
 .ground{
@@ -27,6 +32,7 @@
     width:100%;
     position:absolute;
     top:70%;
+    transform-origin:bottom;
 }
 
 .sky{
