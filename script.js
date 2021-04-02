@@ -1,5 +1,6 @@
 //background-color:hsla(degrees, percent% , percent%, decimal)
 var currentDegree;
+
 var currentSaturation;  
 function generateSun(){
     var colorD = Math.random()*360;
@@ -15,6 +16,7 @@ function generateSun(){
 }
 
 generateSun();
+generateTrees()
 
 function lightUpGround(){
     for(let i=0;i<20;i++){
@@ -74,8 +76,57 @@ function lightUpGroundNegative2(){
 }
 
 function generateTrees(){
-    for(let i=0;i<100;i++){
-        var tree=
+
+    $('.tree').remove();
+    for(let i=0;i<50;i++){
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var j = 0; j < 6; j++) {
+        color += letters[Math.floor(Math.random() * 16)];}
+        
+        // var size = Math.random()*20+10;
+        var width=Math.random()*20+10 
+        var top=Math.random()*100;
+        var left=Math.random()*100;
+        var tree=$('<div>');
+        
+        tree.addClass('tree');
+        tree.css('top',top+'%')
+        tree.css('left',left+'%')
+        tree.css('width',width)
+        var treebody=$('<div>') 
+        treebody.addClass('treeBody');
+        
+        treebody.css('border-bottom',width+'px solid'+color)
+        treebody.css('border-left',width+'px solid transparent')
+        treebody.css('border-right',width+'px solid transparent')
+        var treeCast=$('<div>') 
+        treeCast.addClass('treeCastShadow');
+        treeCast.css('border-top',width+'px solid hsla('+currentDegree+','+currentSaturation+'%, 4%,.5)')
+        treeCast.css('border-left',width+'px solid transparent')
+        treeCast.css('border-right',width+'px solid transparent')
+        var treeShadow=$('<div>') 
+        treeShadow.addClass('treeShadow');
+        
+        treeShadow.css('border-bottom',width+'px solid hsla('+currentDegree+','+currentSaturation+'%, 4%,.5)')
+        treeShadow.css('border-left',width+'px solid transparent')
+        treeShadow.css('border-right',width+'px solid transparent')
+        
+
+
+        tree.append(treebody);
+        tree.append(treeCast);
+        tree.append(treeShadow);
+
+
+        $('.trees').append(tree)
+
+
+
+        // var treeCastShawdow=$('<div>') 
+        // treebody.addClass('tree');
+
+
     }
 
 }
@@ -87,38 +138,62 @@ function generateTrees(){
 $('body').mousemove(e=>{
     $('.sun0').css('top',e.pageY-400)
     $('.sun0').css('left',e.pageX-400)
-    console.log(e.pageY)
-    console.log($('.ground'))
+    // console.log(e.pageY)
+    // console.log($('.ground'))
 
     console.log($('.ground')[0].offsetTop)
     if(e.pageY<$('.ground')[0].offsetTop){
         $('.groundStripe').remove()
         lightUpGround()
+        // generateTrees() 
 
     }
     if(e.pageY<$('.ground')[0].offsetTop-100){
         $('.groundStripe').remove()
         lightUpGround2()
+        $('.treeCastShadow').css("transform",'scaleY(1)')
+        $('.treeShadow').css("transform",'scaleY(.7)')
+
+
 
     }
     if(e.pageY<$('.ground')[0].offsetTop-200){
         $('.groundStripe').remove()
         lightUpGround3()
+        $('.treeCastShadow').css("height",'20%')
+        $('.treeCastShadow').css("transform",'scaleY(.5)')
+        $('.treeShadow').css("transform",'scaleY(.5)')
+
+
+
 
     }
     if(e.pageY<$('.ground')[0].offsetTop-300){
         $('.groundStripe').remove()
         lightUpGround4()
+        $('.treeCastShadow').css("height",'10%')
+        $('.treeCastShadow').css("transform",'scaleY(.2)')
+        $('.treeShadow').css("transform",'scaleY(.2)')
+
+
+
 
     }
     if(e.pageY>$('.ground')[0].offsetTop+100){
         $('.groundStripe').remove()
         lightUpGroundNegative1()
+        $('.treeCastShadow').css("transform",'scaleY(2)')
+        $('.treeShadow').css("transform",'scaleY(.9)')
+
 
     }
     if(e.pageY>$('.ground')[0].offsetTop+200){
         $('.groundStripe').remove()
         lightUpGroundNegative2()
+        $('.treeCastShadow').css("transform",'scaleY(4)')
+        $('.treeShadow').css("transform",'scaleY(1)')
+
+
         
 
     }

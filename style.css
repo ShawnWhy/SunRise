@@ -22,6 +22,12 @@
     top:70%;
     background-color:rgb(51, 9, 9);
 }
+.trees{
+    height:30%;
+    width:100%;
+    position:absolute;
+    top:70%;
+}
 
 .sky{
     background-color:rgba(74, 74, 139, 0.788);
@@ -37,19 +43,35 @@
 
 }
 
-.trees{
+.tree{
     position:absolute;
   
 }
 .treeBody{
-    width:100%;
-    height:50%;
+    position:relative;
+    z-index: 1;
+    /* width:100%;
+    height:50%; */
+
 
 }
-.treeShawdow{
-    width:100%; 
-    height:50%;
+.treeShadow{
+  position:absolute;
+  z-index:1;
+  bottom:50%;
+  transform-origin:bottom;
+
       
 }
+.treeCastShadow{
+    /* width:100%; 
+    height:50%; */
+    transform-origin:top;
+    z-index:2;
+
+      
+}
+
+
 
 
